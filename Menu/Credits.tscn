@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Font/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu/Credits 1.gd" type="Script" id=2]
+[ext_resource path="res://Buttons/Back 2.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Credits 1" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits 2" type="VBoxContainer" parent="Credits 1"]
+margin_left = 438.901
+margin_top = 133.95
+margin_right = 521.901
+margin_bottom = 173.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits 3" type="HBoxContainer" parent="Credits 1/Credits 2"]
+margin_right = 83.0
+margin_bottom = 39.0
+
+[node name="Back 2" type="Button" parent="Credits 1/Credits 2/Credits 3"]
+margin_right = 83.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_disabled = Color( 0.47451, 0.388235, 0, 1 )
+custom_colors/font_color = Color( 0.47451, 0.388235, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0.819608, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.47451, 0.388235, 0, 1 )
+text = "Back"
+flat = true
+script = ExtResource( 3 )
+scene_to_load = "res://Menu/Coldwar207menu.tscn"
+
+[node name="Me" type="Label" parent="."]
+margin_left = -14.25
+margin_top = 46.5499
+margin_right = 1009.75
+margin_bottom = 166.55
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.47451, 0.388235, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 10
+text = "Made By Lachlan Jones"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

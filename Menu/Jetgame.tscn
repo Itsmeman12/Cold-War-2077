@@ -1,0 +1,260 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Font/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Buttons/Back 4.gd" type="Script" id=2]
+[ext_resource path="res://Menu/Jet 1.gd" type="Script" id=3]
+[ext_resource path="res://The Jet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://The Jet.gd" type="Script" id=5]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy.gd" type="Script" id=7]
+[ext_resource path="res://Menu/Eneimes.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.9988, 409.516 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10.3944, 491.938 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 719.533, 8.96625 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 619.122, 10 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -56.0
+margin_top = -25.0
+margin_right = 1070.0
+margin_bottom = 642.0
+color = Color( 0, 0.552941, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jet1" type="Control" parent="."]
+margin_left = -924.0
+margin_top = -547.0
+margin_right = 2070.0
+margin_bottom = 833.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jet2" type="VBoxContainer" parent="Jet1"]
+margin_left = 940.0
+margin_top = 552.0
+margin_right = 1023.0
+margin_bottom = 602.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jet3" type="HBoxContainer" parent="Jet1/Jet2"]
+margin_right = 85.0
+margin_bottom = 33.0
+
+[node name="Score" type="Label" parent="Jet1/Jet2/Jet3"]
+margin_right = 85.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.47451, 0.388235, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.47451, 0.388235, 0, 1 )
+text = "Score"
+
+[node name="Button" type="Node2D" parent="Jet1/Jet2/Jet3"]
+position = Vector2( 28.5602, -383.976 )
+
+[node name="Back 4" type="Button" parent="Jet1/Jet2/Jet3/Button"]
+margin_left = 889.459
+margin_top = 939.312
+margin_right = 972.459
+margin_bottom = 978.312
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0.47451, 0.388235, 0, 1 )
+custom_colors/font_color = Color( 0.47451, 0.388235, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0.819608, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.47451, 0.388235, 0, 1 )
+text = "Back"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene_to_load = "res://Menu/Secondscene.tscn"
+
+[node name="Border _Right" type="KinematicBody2D" parent="." groups=[
+"right",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border _Right"]
+position = Vector2( 1028.48, 291.843 )
+shape = SubResource( 3 )
+
+[node name="Border _Left" type="KinematicBody2D" parent="." groups=[
+"left",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border _Left"]
+position = Vector2( -1.91473, 378.39 )
+shape = SubResource( 4 )
+
+[node name="Border _Top" type="KinematicBody2D" parent="." groups=[
+"up",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border _Top"]
+position = Vector2( 448.963, 0 )
+shape = SubResource( 5 )
+
+[node name="Border _Bottom" type="KinematicBody2D" parent="." groups=[
+"down",
+]]
+position = Vector2( 337.061, 683.279 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border _Bottom" groups=[
+"down",
+]]
+position = Vector2( 159, -84.0002 )
+shape = SubResource( 6 )
+
+[node name="Eneimes" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Enemy" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 744.423, -110.445 )
+script = ExtResource( 7 )
+
+[node name="Enemy2" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 560.39, -144.636 )
+script = ExtResource( 7 )
+
+[node name="Enemy3" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 690.86, 105.88 )
+script = ExtResource( 7 )
+
+[node name="Enemy4" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 547.329, 160.034 )
+script = ExtResource( 7 )
+
+[node name="Enemy5" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 582.263, 310.376 )
+script = ExtResource( 7 )
+
+[node name="Enemy6" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 537.945, -2.70006 )
+script = ExtResource( 7 )
+
+[node name="Enemy7" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 751.245, -16.516 )
+script = ExtResource( 7 )
+
+[node name="Enemy8" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 716.394, 239.947 )
+script = ExtResource( 7 )
+
+[node name="Enemy9" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 896.773, -74.0463 )
+script = ExtResource( 7 )
+
+[node name="Enemy10" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 920.156, 59.5679 )
+script = ExtResource( 7 )
+
+[node name="Enemy11" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1035.96, 260.97 )
+script = ExtResource( 7 )
+
+[node name="Enemy12" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 854.7, 175.374 )
+script = ExtResource( 7 )
+
+[node name="Enemy13" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1041, 119.988 )
+script = ExtResource( 7 )
+
+[node name="Enemy14" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1058.62, 6.69991 )
+script = ExtResource( 7 )
+
+[node name="Enemy15" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1035.96, -119.176 )
+script = ExtResource( 7 )
+
+[node name="Enemy16" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1184.5, -58.7558 )
+script = ExtResource( 7 )
+
+[node name="Enemy17" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1232.33, 36.91 )
+script = ExtResource( 7 )
+
+[node name="Enemy18" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1262.54, -111.624 )
+script = ExtResource( 7 )
+
+[node name="Enemy19" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1234.85, 142.646 )
+script = ExtResource( 7 )
+
+[node name="Enemy20" parent="Eneimes" groups=[
+"enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 1184.5, 223.207 )
+script = ExtResource( 7 )
+
+[node name="The Jet" parent="." instance=ExtResource( 4 )]
+script = ExtResource( 5 )
